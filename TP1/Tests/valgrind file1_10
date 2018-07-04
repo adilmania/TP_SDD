@@ -1,0 +1,65 @@
+$valgrind ./tp1 Tests/file1.txt 10
+
+==2954== Memcheck, a memory error detector
+==2954== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==2954== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==2954== Command: ./tp1 Tests/file1.txt 10
+==2954==
+
+ Affichage de la matrice lue du fichier
+19.00 42.00 63.00 4.00 12.00 9.00 30.00 18.00 47.00 1.00
+53.00 7.00 4.00 66.00 13.00 21.00 39.00 11.00 6.00 99.00
+
+ Affichage de la liste chaînée vide
+-> NULL
+
+ Affichage de la liste chaînée après une insertion
+[ Ligne: 0, Colonne: 7, Cout: 18 ] ->
+[ Ligne: 1, Colonne: 4, Cout: 13 ] ->
+[ Ligne: 0, Colonne: 4, Cout: 12 ] ->
+[ Ligne: 1, Colonne: 7, Cout: 11 ] ->
+[ Ligne: 0, Colonne: 5, Cout: 9 ] ->
+[ Ligne: 1, Colonne: 1, Cout: 7 ] ->
+[ Ligne: 1, Colonne: 8, Cout: 6 ] ->
+[ Ligne: 1, Colonne: 2, Cout: 4 ] ->
+[ Ligne: 0, Colonne: 3, Cout: 4 ] ->
+[ Ligne: 0, Colonne: 9, Cout: 1 ] ->
+-> NULL
+==2954== Invalid read of size 8
+==2954==    at 0x400E36: Suppression_Occurences (Suppr.c:41)
+==2954==    by 0x40104D: main (main.c:35)
+==2954==  Address 0x5205c00 is 16 bytes inside a block of size 24 free'd
+==2954==    at 0x4C2EDEB: free (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x400EA4: Suppression_Element (Suppr.c:69)
+==2954==    by 0x400E31: Suppression_Occurences (Suppr.c:40)
+==2954==    by 0x40104D: main (main.c:35)
+==2954==  Block was alloc'd at
+==2954==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2954==    by 0x400896: Insertion_Bloc (List_CH.c:60)
+==2954==    by 0x400A15: Insertion_Triee (List_CH.c:117)
+==2954==    by 0x400A61: Insertion_Matrice (List_CH.c:144)
+==2954==    by 0x401026: main (main.c:30)
+==2954==
+
+ Affichage de la liste chaînée après une suppression d'occurences de l'usine 0
+[ Ligne: 1, Colonne: 4, Cout: 13 ] ->
+[ Ligne: 1, Colonne: 7, Cout: 11 ] ->
+[ Ligne: 1, Colonne: 1, Cout: 7 ] ->
+[ Ligne: 1, Colonne: 8, Cout: 6 ] ->
+[ Ligne: 1, Colonne: 2, Cout: 4 ] ->
+-> NULL
+==2954==
+==2954== HEAP SUMMARY:
+==2954==     in use at exit: 328 bytes in 10 blocks
+==2954==   total heap usage: 30 allocs, 20 frees, 11,008 bytes allocated
+==2954==
+==2954== LEAK SUMMARY:
+==2954==    definitely lost: 24 bytes in 2 blocks
+==2954==    indirectly lost: 304 bytes in 8 blocks
+==2954==      possibly lost: 0 bytes in 0 blocks
+==2954==    still reachable: 0 bytes in 0 blocks
+==2954==         suppressed: 0 bytes in 0 blocks
+==2954== Rerun with --leak-check=full to see details of leaked memory
+==2954==
+==2954== For counts of detected and suppressed errors, rerun with: -v
+==2954== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

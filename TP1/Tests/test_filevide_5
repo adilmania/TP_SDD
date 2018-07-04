@@ -1,0 +1,12 @@
+$./tp1 Tests/filevide.txt 5
+
+Erreur d'ouverture du fichier!
+
+ Affichage de la liste chaînée vide
+-> NULL
+
+ Affichage de la liste chaînée après une insertion
+-> NULL
+
+ Affichage de la liste chaînée après une suppression d'occurences de l'usine 0
+-> NULL
